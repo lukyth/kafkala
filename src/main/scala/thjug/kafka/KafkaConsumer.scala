@@ -9,9 +9,7 @@ import thjug.decoder.StringDecoder
 /**
   * @author Peerapat A
   */
-object KafkaConsumer extends App {
-
-  val system = ActorSystem("cusco")
+case class KafkaConsumer(system: ActorSystem) {
 
   val distributer = system.actorOf(Props(new Distributer(system)), name = "distributer")
 
