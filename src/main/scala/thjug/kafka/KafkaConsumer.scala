@@ -9,7 +9,9 @@ import thjug.decoder.StringDecoder
 /**
   * @author Peerapat A
   */
-case class KafkaConsumer(system: ActorSystem) {
+object KafkaConsumer extends App {
+
+  val system = ActorSystem("Cocao")
 
   val distributer = system.actorOf(Props(new Distributer(system)), name = "distributer")
 
@@ -18,8 +20,8 @@ case class KafkaConsumer(system: ActorSystem) {
 
   val consumerProps = AkkaConsumerProps.forSystem(
     system = system,
-    zkConnect = "localhost:2181",
-    topic = "test",
+    zkConnect = "hadoop-dev:2181",
+    topic = "traffic",
     group = "akka-kafka",
     streams = 10,
     keyDecoder = StringDecoder(),

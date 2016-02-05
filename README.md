@@ -11,10 +11,10 @@ Kafka Example
     kafka-server-start.sh /usr/local/etc/kafka/server.properties
 
 #Create Topic
-    bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 10 --topic test
+    kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 10 --topic test
 
 #List Topic
-    bin/kafka-topics.sh --list --zookeeper localhost:2181
+    kafka-topics.sh --list --zookeeper localhost:2181
     
 #Reference
     http://kafka.apache.org/documentation.html#quickstart
@@ -24,7 +24,6 @@ Kafka Example
     
     java -cp KafkaOffsetMonitor-assembly-0.2.1.jar \
          com.quantifind.kafka.offsetapp.OffsetGetterWeb \
-         --offsetStorage zookeeper
          --zk localhost \
          --port 8080 \
          --refresh 10.seconds \
