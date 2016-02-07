@@ -20,7 +20,7 @@ object KafkaConsumer extends App {
 
   val consumerProps = AkkaConsumerProps.forSystem(
     system = system,
-    zkConnect = "hadoop-dev:2181",
+    zkConnect = "localhost:2181",
     topic = "traffic",
     group = "akka-kafka",
     streams = 10,
